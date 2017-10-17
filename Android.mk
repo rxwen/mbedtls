@@ -95,3 +95,35 @@ LOCAL_SRC_FILES := \
 
 LOCAL_MODULE := libmbedtls
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := gen_key
+
+LOCAL_SRC_FILES := \
+	programs/pkey/gen_key.c
+
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
+
+LOCAL_SHARED_LIBRARIES := \
+	libmbedtls
+
+LOCAL_PRELINK_MODULE := false
+LOCAL_MODULE_TAGS := eng
+
+include $(BUILD_EXECUTABLE)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := cert_write
+
+LOCAL_SRC_FILES := \
+	programs/x509/cert_write.c
+
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
+
+LOCAL_SHARED_LIBRARIES := \
+	libmbedtls
+
+LOCAL_PRELINK_MODULE := false
+LOCAL_MODULE_TAGS := eng
+
+include $(BUILD_EXECUTABLE)
